@@ -30,6 +30,20 @@ public class Main {
         System.out.println("Check if a palindrome number?");
         System.out.println(checkPalindromeString("abcbaa"));
 
+        System.out.println("How to remove space from a string?");
+        System.out.println(removeSpaceFromString(" abca "));
+
+    }
+
+    public static String removeSpaceFromString(String input) {
+        StringBuilder sb = new StringBuilder();
+        char[] charArr = input.toCharArray();
+        for(char c: charArr){
+            if(!Character.isWhitespace(c))
+                sb.append(c);
+        }
+        //System.out.println(sb.length());
+        return sb.toString();
     }
 
     public static boolean checkPalindromeString(String input) {
