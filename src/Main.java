@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -33,6 +34,34 @@ public class Main {
         System.out.println("How to remove space from a string?");
         System.out.println(removeSpaceFromString(" abca "));
 
+        String s = "  abc  def  vb   \t";
+        System.out.println("How to remove Leading and Trailing Whitespaces from a string?");
+        System.out.println(removeLeadingAndTrailingWhitespace(s));
+
+        int[] array = {1, 2, 3, -1, -2, 4};
+        System.out.println("How to sort of an array?");
+        System.out.println(Arrays.toString(sortArray(array)));
+
+        System.out.println("How to express factorial?");
+        System.out.println(factorial(6));
+
+
+    }
+
+    public static long factorial(int n){
+        if (n == 0 || n == 1) {
+            return 1;
+        }
+        return (n*factorial(n-1));
+    }
+
+    public static int[] sortArray(int[] arr){
+        Arrays.sort(arr);
+        return arr;
+    }
+
+    public static String removeLeadingAndTrailingWhitespace(String s){
+        return s.strip();
     }
 
     public static String removeSpaceFromString(String input) {
