@@ -1,5 +1,7 @@
+import java.security.spec.RSAOtherPrimeInfo;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
@@ -45,7 +47,45 @@ public class Main {
         System.out.println("How to express factorial?");
         System.out.println(factorial(6));
 
+        System.out.println("How to reverse a LinkedList?");
+        reverseLinkList();
 
+        System.out.println("binary search?");
+        int arr[] = { 10, 20, 15, 22, 35 };
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
+        int h = arr.length;
+        System.out.println(binarySearch(arr, 0,h-1, 15));
+    }
+
+    public static int binarySearch(int arr[], int low, int high, int key){
+        int mid = (low + high) / 2;
+
+        if (low > high) {
+            return -1;
+        }
+
+        while (low <= high) {
+            if (arr[mid] < key) {
+                low = mid + 1;
+            } else if (arr[mid] == key) {
+                return mid;
+            } else {
+                high = mid - 1;
+            }
+            mid = (low + high) / 2;
+        }
+        return -1;
+    }
+
+    public static void reverseLinkList(){
+        LinkedList<Integer> l1 = new LinkedList<>();
+        l1.add(2);
+        l1.add(6);
+        l1.add(7);
+        LinkedList<Integer> l2 = new LinkedList<>();
+        l1.descendingIterator().forEachRemaining(l2::add);
+        System.out.println(l2);
     }
 
     public static long factorial(int n){
