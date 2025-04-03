@@ -56,6 +56,56 @@ public class Main {
         System.out.println(Arrays.toString(arr));
         int h = arr.length;
         System.out.println(binarySearch(arr, 0,h-1, 15));
+
+        System.out.println("Given an array {7, 5, 8, 3, 1, 4} – write a simple program in Java that will return the largest 3 nos.");
+        int[] arr1 = {7, 5, 8, 3, 1, 4};
+        findLargestThreeNos(arr1);
+
+        int x = 5;
+        int y = ++x;
+        //int y = x++;
+        System.out.println(x+","+y);
+        findValue();
+
+
+    }
+
+    public static void findValue() {
+        int i = 20;
+        int j = 55;
+        int z = 0;
+        z = i < j ? i : j; // ternary operator
+        System.out.println("The value assigned is " + z);
+    }
+
+
+    public static void findLargestThreeNos(int[] arr){
+
+        int len = arr.length;
+        Arrays.sort(arr);
+        System.out.println("Largest Three nos = "+arr[len-1]+","+arr[len-2]+","+arr[len-3]);
+
+        //OR
+        int largest = 0;
+        int secondLargest = 0;
+        int thirdLargest= 0;
+
+        for(int i=0 ;i <= arr.length-1; i++) {
+
+            if(arr[i] > largest) {
+                thirdLargest = secondLargest;
+                secondLargest = largest;
+                largest = arr[i];
+            }else if(arr[i] > secondLargest && secondLargest < largest) {
+
+                thirdLargest = secondLargest;
+                secondLargest = arr[i];
+
+            }else if(arr[i] > thirdLargest && thirdLargest < secondLargest ) {
+                thirdLargest = arr[i];
+            }
+        }
+        System.out.println("Largest Three nos are = "+largest+","+secondLargest+","+thirdLargest);
     }
 
     public static int binarySearch(int arr[], int low, int high, int key){
