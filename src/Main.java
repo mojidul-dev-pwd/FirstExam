@@ -1,8 +1,5 @@
 import java.security.spec.RSAOtherPrimeInfo;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -85,6 +82,44 @@ public class Main {
         varargsMethod("foo", "bar");
         varargsMethod("foo", "bar", "boo");
         varargsMethod(new String[]{"foo", "var", "boo"});
+
+        //Set example
+        Set<String> stringSets = new HashSet<String>()
+        {
+            {
+                add("set1");
+                add("set2");
+                add("set3");
+            }
+        };
+        doSomething(stringSets);
+
+        //String reverse
+        System.out.println(getReversedStr("abcd"));
+
+        //is palindrome
+        System.out.println(isWordPalindrome("abcba"));
+
+    }
+
+    public static boolean isWordPalindrome(String word){
+        String reverseWord = getReversedStr(word);
+        if(word.equals(reverseWord)){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public static String getReversedStr(String word){
+        if(word == null || word.isEmpty()){
+            return word;
+        }
+        return word.charAt(word.length()-1)+getReversedStr(word.substring(0, word.length()-1));
+    }
+
+    public static void doSomething(Set<String> stringSets){
+        System.out.println(stringSets);
     }
 
     public static void varargsMethod(String... variables){ //Can receive multiple arguments of the datatype String
