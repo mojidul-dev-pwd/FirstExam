@@ -76,9 +76,21 @@ public class Main {
         System.out.println(checking()); //return true
         System.out.println(checkingTwo()); // return false ... created in the heap memory even if the same content object is present
 
+        //Synchronization example
         CheckingSync obj1 = new CheckingSync();
         obj1.testSync();
         obj1.testWithoutSync();
+
+        //varargs method example
+        varargsMethod("foo", "bar");
+        varargsMethod("foo", "bar", "boo");
+        varargsMethod(new String[]{"foo", "var", "boo"});
+    }
+
+    public static void varargsMethod(String... variables){ //Can receive multiple arguments of the datatype String
+        for(String variable : variables){
+            System.out.println(variable);
+        }
     }
 
     public static boolean checking() {
