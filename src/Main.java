@@ -5,7 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws InterruptedException {
 
         System.out.println("How do you reverse a string?");
         System.out.println(reverseString("abcd"));
@@ -67,7 +68,35 @@ public class Main {
         System.out.println(x+","+y);
         findValue();
 
+        //What is the difference between ‘>>’ and ‘>>>’ operators in java?
+        System.out.println(8 >> 1); //1000 = 8 ;;; 0100 = 4 (signed bit) This operator shifts each bit to its right position
+        System.out.println(8 >>> 1); //1000 = 8 ;;; 0100 = 4 (unsigned bit) This operator also shifts each bit to its right position
 
+        //checking string difference
+        System.out.println(checking()); //return true
+        System.out.println(checkingTwo()); // return false ... created in the heap memory even if the same content object is present
+
+        CheckingSync obj1 = new CheckingSync();
+        obj1.testSync();
+        obj1.testWithoutSync();
+    }
+
+    public static boolean checking() {
+        String first = "InterviewBit";
+        String second = "InterviewBit";
+        if (first == second)
+            return true;
+        else
+            return false;
+    }
+
+    public static boolean checkingTwo() {
+        String first = new String("InterviewBit");
+        String second = new String("InterviewBit");
+        if (first == second)
+            return true;
+        else
+            return false;
     }
 
     public static void findValue() {
